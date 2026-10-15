@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Lezat - Nikmati Hidangan Terbaik</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e63946;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b02a37;
+            transform: scale(1.05);
+        }
+
+        /* NAVIGASI */
+        nav {
+            background-color: #1d3557;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e63946;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            color: #1d3557;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #e63946;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* MENU */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-item h3 {
+            color: #1d3557;
+            margin: 15px 0 8px;
+        }
+
+        .menu-item p {
+            padding: 0 15px;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .price {
+            display: block;
+            color: #e63946;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 12px 0 20px;
+        }
+
+        /* TENTANG */
+        .about {
+            background-color: #1d3557;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #f1faee;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* GALERI */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* RESERVASI */
+        .reservation {
+            background-color: #f1faee;
+            padding: 60px 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #e63946;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0d1b2a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer .info {
+            color: #a8dadc;
+            font-size: 0.9em;
+        }
+
+        /* RESPONSIF */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            header { padding: 60px 20px; }
+            .section-title { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Restoran Lezat</h1>
+        <p>Nikmati Cita Rasa Autentik Indonesia</p>
+        <a href="#reservasi" class="btn">Reservasi Sekarang</a>
+    </header>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#reservasi">Reservasi</a>
+    </nav>
+
+    <!-- MENU -->
+    <div class="container" id="menu">
+        <h2 class="section-title">Menu Andalan Kami</h2>
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Nasi Goreng">
+                <h3>Nasi Goreng Spesial</h3>
+                <p>Nasi goreng dengan telur, ayam, dan bumbu rahasia</p>
+                <span class="price">Rp 35.000</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=500" alt="Mie Ayam">
+                <h3>Mie Ayam Bakso</h3>
+                <p>Mie ayam dengan bakso sapi dan pangsit goreng</p>
+                <span class="price">Rp 30.000</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?w=500" alt="Sate Ayam">
+                <h3>Sate Ayam Madura</h3>
+                <p>Sate ayam dengan bumbu kacang khas Madura</p>
+                <span class="price">Rp 40.000</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Salad">
+                <h3>Salad Sayur Segar</h3>
+                <p>Campuran sayuran segar dengan dressing spesial</p>
+                <span class="price">Rp 25.000</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500" alt="Es Krim">
+                <h3>Es Krim Premium</h3>
+                <p>Es krim lembut dengan topping buah segar</p>
+                <span class="price">Rp 20.000</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500" alt="Minuman">
+                <h3>Es Teh Manis</h3>
+                <p>Es teh manis segar untuk menemani makan Anda</p>
+                <span class="price">Rp 10.000</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TENTANG -->
+    <div class="about" id="tentang">
+        <h2>Tentang Restoran Kami</h2>
+        <p>
+            Restoran Lezat berdiri sejak tahun 2010 dengan visi menyajikan hidangan autentik 
+            Indonesia dengan cita rasa terbaik. Kami menggunakan bahan-bahan segar pilihan 
+            dan resep turun-temurun untuk memastikan setiap hidangan istimewa bagi Anda.
+        </p>
+    </div>
+
+    <!-- GALERI -->
+    <div class="container" id="galeri">
+        <h2 class="section-title">Galeri Restoran</h2>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Interior">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400" alt="Suasana">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400" alt="Hidangan">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400" alt="Meja">
+        </div>
+    </div>
+
+    <!-- RESERVASI -->
+    <div class="reservation" id="reservasi">
+        <div class="container">
+            <h2 class="section-title">Reservasi Meja</h2>
+            <form onsubmit="kirimReservasi(event)">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="tel" placeholder="Nomor Telepon" required>
+                <input type="date" required>
+                <select required>
+                    <option value="">Pilih Jumlah Orang</option>
+                    <option>1-2 Orang</option>
+                    <option>3-4 Orang</option>
+                    <option>5-6 Orang</option>
+                    <option>Lebih dari 6 Orang</option>
+                </select>
+                <textarea rows="3" placeholder="Catatan tambahan (opsional)"></textarea>
+                <button type="submit" class="btn">Kirim Reservasi</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Restoran Lezat</strong></p>
+        <p class="info">📍 Jl. Merdeka No. 123, Jakarta</p>
+        <p class="info">📞 (021) 1234-5678 | ✉️ info@restoranlezat.com</p>
+        <p class="info">🕒 Buka Setiap Hari: 10.00 - 22.00 WIB</p>
+        <p style="margin-top: 15px;">&copy; 2025 Restoran Lezat. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function kirimReservasi(event) {
+            event.preventDefault();
+            alert('Terima kasih! Reservasi Anda telah kami terima. Kami akan menghubungi Anda segera.');
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>
